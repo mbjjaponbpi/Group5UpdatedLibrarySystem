@@ -1,4 +1,3 @@
-// TODO test2
 package com.group5.service;
 
 import com.group5.model.*;
@@ -249,8 +248,6 @@ public class LibraryImpl implements LibraryService {
 		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
 		//insert code here
-		// testing comment - niko
-		// testing comment3 - niko
 
 		library.setBookList(bookList);
 		library.setLoanList(loanList);
