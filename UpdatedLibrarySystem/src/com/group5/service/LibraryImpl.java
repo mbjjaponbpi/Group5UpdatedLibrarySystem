@@ -248,6 +248,7 @@ public class LibraryImpl implements LibraryService {
 		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
 		//insert code here
+		// testing comment - niko
 
 		library.setBookList(bookList);
 		library.setLoanList(loanList);
