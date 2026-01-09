@@ -288,7 +288,6 @@ public class LibraryImpl implements LibraryService {
 
 
 
-
 	/*
 	 * parameter input
 	 * displayType:
