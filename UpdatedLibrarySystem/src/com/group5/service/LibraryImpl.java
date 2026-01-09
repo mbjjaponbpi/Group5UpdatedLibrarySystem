@@ -236,6 +236,7 @@ public class LibraryImpl implements LibraryService {
 		// TODO Auto-generated method stub
 
 		//insert code here
+		bookList.add(newBook);
 
 		library.setBookList(bookList);
 		System.out.println("You have successfully added book with title " + newBook.getTitle());
