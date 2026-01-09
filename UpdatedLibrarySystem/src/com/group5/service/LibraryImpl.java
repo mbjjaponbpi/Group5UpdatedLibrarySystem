@@ -247,8 +247,27 @@ public class LibraryImpl implements LibraryService {
 	public Library deleteBook(String bookfordeletion) {
 		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
-		//insert code here
+		for (int j = 0 ; j < bookList.size(); j++) {
+			Book book = bookList.get(j);
+			if (book.getId().equalsIgnoreCase(bookfordeletion)) {
+				//remove the book
+				bookList.remove(j);
 
+				//remove any existing loan
+				for (int i = 0 ; i < loanList.size(); i++) {
+					Loan loan = loanList.get(i);
+					if (loan.getBook().getId().equalsIgnoreCase(bookfordeletion)) {
+						//System.out.println(loan.getLoanId());
+						//System.out.println(loan.getBook().getId());
+						//remove from loans
+						loanList.remove(i);
+						break;
+					}
+				}
+				System.out.println(" You have successfully removed the book entitled " + book.getTitle());
+				break;
+			}
+		}
 		library.setBookList(bookList);
 		library.setLoanList(loanList);
 		return this.library;
