@@ -1,6 +1,7 @@
 package com.group5.service;
 
 import com.group5.model.*;
+import java.util.Objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -233,9 +234,6 @@ public class LibraryImpl implements LibraryService {
 
 	@Override
 	public Library addBook(Book newBook) {
-		// TODO Auto-generated method stub
-
-		//insert code here
 		bookList.add(newBook);
 
 		library.setBookList(bookList);
@@ -277,10 +275,16 @@ public class LibraryImpl implements LibraryService {
 
 	@Override
 	public Library updateBook(Book updatedBook) {
-		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
-		//insert code here
 
+		int index=-1;
+		for (int i=0; i < bookList.size(); i++) {
+			if (Objects.equals(bookList.get(i).getId(),updatedBook.getId())) {
+				index = i;
+				break;
+			}
+		}
+		bookList.set(index, updatedBook);
 
 		library.setBookList(bookList);
 		library.setLoanList(loanList);
