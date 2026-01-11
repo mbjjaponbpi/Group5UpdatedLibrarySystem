@@ -222,9 +222,17 @@ public class LibraryImpl implements LibraryService {
 	public Library returnBook(String loanChoice) {
 		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
-		//insert code here
+		for (int i = 0 ; i < loanList.size(); i++) {
+			Loan loan = loanList.get(i);
+			if (loan.getLoanId().equalsIgnoreCase(loanChoice)) {
+				Book book = loan.getBook();
+				book.setIsBorrowed(false);
 
-
+				loanList.remove(i);
+				System.out.println(" You have successfully returned the book entitled " + book.getTitle());
+				break;
+			}
+		}
 		this.library.setBookList(bookList);
 		this.library.setLoanList(loanList);
 		return this.library;
@@ -233,11 +241,7 @@ public class LibraryImpl implements LibraryService {
 
 	@Override
 	public Library addBook(Book newBook) {
-		// TODO Auto-generated method stub
-
-		//insert code here
 		bookList.add(newBook);
-
 		library.setBookList(bookList);
 		System.out.println("You have successfully added book with title " + newBook.getTitle());
 		return this.library;
@@ -279,13 +283,19 @@ public class LibraryImpl implements LibraryService {
 	public Library updateBook(Book updatedBook) {
 		// TODO Auto-generated method stub
 		System.out.println(Constants.strPROCESSLOADING );
-		//insert code here
-
-
+		for (int j = 0 ; j < bookList.size(); j++) {
+			Book book = bookList.get(j);
+			if (book.getId().equalsIgnoreCase(updatedBook.getId())) {
+				bookList.set(j, updatedBook);
+				System.out.println(" You have successfully updated the book with ID " + updatedBook.getId());
+				break;
+			}
+		}
 		library.setBookList(bookList);
 		library.setLoanList(loanList);
 		return this.library;
 	}
+
 
 
 
